@@ -6,11 +6,13 @@ const useGif = (keyword) => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        const keywordToUse = keyword || localStorage.getItem('lastSearched') || 'random';
         setLoading(true);
         async function fetch() {
-            const fetchedGifs = await fetchGifs(keyword);
+            const fetchedGifs = await fetchGifs(keywordToUse);
             setGifs(fetchedGifs);
             setLoading(false);
+            localStorage.setItem('lastSearched', keywordToUse);
         }
         fetch();
     }, [keyword]);

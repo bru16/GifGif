@@ -6,7 +6,7 @@ const defaultGif = {
 }
 
 export const fetchGifs = async (keyword) => {
-    const API_URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=5&offset=0&rating=g&lang=en'`;
+    const API_URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=20&offset=0&rating=g&lang=en'`;
     try {
         const res = await fetch(API_URL);
         const response = await res.json();
