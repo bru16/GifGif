@@ -1,25 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Gif from './Gif'
-import { fetchGifs } from '../services/gifs';
 import { Link } from 'wouter'
 
-const Gifs = ({ params }) => {
-    const { keyword } = params;
-    const [gifs, setGifs] = useState([]);
-    const [loading, setLoading] = useState(false);
-
-    useEffect(() => {
-        setLoading(true);
-        async function fetch() {
-            const fetchedGifs = await fetchGifs(keyword);
-            setGifs(fetchedGifs);
-            setLoading(false);
-        }
-        fetch();
-    }, [keyword]);
-
-    if (loading) return <h3>Loading...</h3>
-
+const Gifs = ({ gifs }) => {
     return (
         <div>
             {gifs.map(singleGif => {
@@ -32,7 +15,8 @@ const Gifs = ({ params }) => {
                                 url={singleGif.url} // {...singleGif}
                             />
                         </div>
-                    </Link>)
+                    </Link>
+                )
             })}
         </div>
     )

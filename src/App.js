@@ -1,18 +1,17 @@
 import React from 'react'
 import './App.css';
-import Gifs from './components/Gifs'
 import { Route } from "wouter";
 import GifItem from './components/GifItem';
+import Home from './pages/Home/Home';
+import SearchResults from './pages/SearchResults';
 
 function App() {
-
-  //const [keyword, setKeyword] = useState('argentina');
 
   return (
     <div className="App">
       <section className="App-header">
-        <h1>App</h1>
-        <Route path="/gifs/:keyword" component={Gifs} />
+        <Route path="/" component={Home} />
+        <Route path="/search/:keyword" component={SearchResults} />
         <Route path="/gif/:id" component={GifItem} />
       </section>
     </div>
