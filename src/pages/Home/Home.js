@@ -6,7 +6,6 @@ import Spinner from '../../components/Spinner/Spinner'
 import './styles.css'
 
 const Home = () => {
-
     const [keyword, setKeyword] = useState('');
     const [, pushLocation] = useLocation();
     const { loading, gifs } = useGif();

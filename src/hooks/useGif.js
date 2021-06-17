@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
 import { fetchGifs } from '../services/gifs'
+import useGlobalGifs from '../hooks/useGlobalGifs'
 
 const useGif = (keyword) => {
-    const [gifs, setGifs] = useState([]);
+    const { gifs, setGifs } = useGlobalGifs();
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
@@ -15,7 +16,7 @@ const useGif = (keyword) => {
             localStorage.setItem('lastSearched', keywordToUse);
         }
         fetch();
-    }, [keyword]);
+    }, [keyword, setGifs]);
 
     return { loading, gifs };
 }
