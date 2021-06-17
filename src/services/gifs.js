@@ -4,9 +4,12 @@ const defaultGif = {
     url: 'https://media.giphy.com/media/TqiwHbFBaZ4ti/giphy.gif',
     id: '14213124215'
 }
+const API = 'https://api.giphy.com/v1/gifs';
+const LIMIT = 15;
 
-export const fetchGifs = async (keyword) => {
-    const API_URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=${keyword}&limit=20&offset=0&rating=g&lang=en'`;
+// get specific gifs that matches the keyword. 
+export const fetchGifs = async (keyword, page = 0) => {
+    const API_URL = `${API}/search?api_key=${API_KEY}&q=${keyword}&limit=${LIMIT}&offset=${page * LIMIT}&rating=r&lang=en'`;
     try {
         const res = await fetch(API_URL);
         const response = await res.json();
@@ -23,7 +26,7 @@ export const fetchGifs = async (keyword) => {
 
 // get gif by ID
 export const fetchGif = async (id) => {
-    const API_URL = `https://api.giphy.com/v1/gifs/${id}?api_key=8NRnNns9qM6YCtAf26w97UNi66Xef7jM`;
+    const API_URL = `${API}/${id}?api_key=8NRnNns9qM6YCtAf26w97UNi66Xef7jM`;
     try {
         const res = await fetch(API_URL);
         const response = await res.json();
@@ -34,5 +37,22 @@ export const fetchGif = async (id) => {
         return { title, url, id }
     } catch (error) {
         console.log(error)
+    }
+}
+
+// get the Trending Gifs in the day. The content is continuously updated (API)
+export const fetchTrendingGifs = async (page = 0) => {
+    const API_URL = `${API}/trending?api_key=${API_KEY}&limit=${LIMIT}&offset=${page * LIMIT}`;
+    try {
+        const res = await fetch(API_URL);
+        const response = await res.json();
+        const { data } = response;
+        return data.map(gif => {
+            const { title, images, id } = gif;
+            const { url } = images.downsized_medium;
+            return { title, url, id }
+        });
+    } catch (error) {
+        console.log(error);
     }
 }

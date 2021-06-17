@@ -3,13 +3,16 @@ import Gif from './Gif'
 import useGlobalGifs from '../../hooks/useGlobalGifs'
 
 const GifItemContext = ({ params }) => {
-    console.log('Context :)')
     const { id } = params;
     const { gifs } = useGlobalGifs();
     const gif = gifs.find(g => g.id === id)
+    console.log(gif)
+    if (gif) return <Gif {...gif} />
+
     return (
-        <Gif {...gif} />
+        <h1>Not gif found :(</h1>
     )
 }
+
 
 export default GifItemContext
