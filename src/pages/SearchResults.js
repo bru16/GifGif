@@ -8,7 +8,10 @@ const SearchResults = ({ params }) => {
     const { loading, gifs } = useGif(keyword);
 
     return <>
-        {loading ? <Spinner /> : <Gifs gifs={gifs} />}
+        {loading ? <Spinner /> : <div>
+            <h3>{keyword}</h3>
+            <Gifs gifs={gifs} />
+        </div>}
     </>
 }
 

@@ -18,14 +18,13 @@ const useGif = (keyword) => {
             if (keywordToUse === null) {
                 const fetchedGifs = await fetchTrendingGifs();
                 setGifs(fetchedGifs);
-                setLoading(false);
             }
             else {
                 const fetchedGifs = await fetchGifs(keywordToUse);
                 setGifs(fetchedGifs);
-                setLoading(false);
                 localStorage.setItem('lastSearched', keywordToUse);
             }
+            setLoading(false);
         }
         fetch();
     }, [keyword, setGifs, keywordToUse]);

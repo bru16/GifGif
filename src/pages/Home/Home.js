@@ -1,28 +1,26 @@
-import React, { useState } from 'react'
+import React, { useCallback } from 'react'
 import { useLocation } from 'wouter'
 import useGif from '../../hooks/useGif';
 import Gifs from '../../components/Gifs/Gifs'
 import Spinner from '../../components/Spinner/Spinner'
 import './styles.css'
+import SearchForm from '../../components/SearchForm/SearchForm'
 
 const Home = () => {
-    const [keyword, setKeyword] = useState('');
+    const lastSearched = localStorage.getItem('lastSearched');
     const [, pushLocation] = useLocation();
     const { loading, gifs, setPage, loadingNextGifs } = useGif();
-    const lastSearched = localStorage.getItem('lastSearched');
-    const handleSubmit = e => {
-        e.preventDefault();
+
+    const handleSubmit = useCallback(keyword => {
         pushLocation(`/search/${keyword}`)
-    }
+    }, [pushLocation]);
 
     if (loading) return <Spinner />
     return (
         <>
             <div className="home">
                 <h2>{lastSearched ? `Last search: ${lastSearched}` : 'Trending'}</h2>
-                <form onSubmit={handleSubmit}>
-                    <input type="text" value={keyword} placeholder="Search gifs..." onChange={e => setKeyword(e.target.value)} />
-                </form>
+                <SearchForm search={handleSubmit} />
                 <Gifs gifs={gifs} />
             </div>
             <br />
