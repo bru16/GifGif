@@ -8,8 +8,8 @@ const API = 'https://api.giphy.com/v1/gifs';
 const LIMIT = 15;
 
 // get specific gifs that matches the keyword. 
-export const fetchGifs = async (keyword, page = 0) => {
-    const API_URL = `${API}/search?api_key=${API_KEY}&q=${keyword}&limit=${LIMIT}&offset=${page * LIMIT}&rating=r&lang=en'`;
+export const fetchGifs = async ({ keyword, rating, page = 0 }) => {
+    const API_URL = `${API}/search?api_key=${API_KEY}&q=${keyword}&limit=${LIMIT}&offset=${page * LIMIT}&rating=${rating}&lang=en'`;
     try {
         const res = await fetch(API_URL);
         const response = await res.json();

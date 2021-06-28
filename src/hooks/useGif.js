@@ -4,10 +4,8 @@ import useGlobalGifs from '../hooks/useGlobalGifs'
 
 const INITIAL_PAGE = 0;
 
-const useGif = (keyword) => {
-    //keyword = decodeURI(keyword);
+const useGif = (keyword, rating) => {
     const keywordToUse = keyword || localStorage.getItem('lastSearched') || null;
-
     const { gifs, setGifs } = useGlobalGifs();
     const [loading, setLoading] = useState(false);
     const [loadingNextGifs, setLoadingNextGifs] = useState(false)
@@ -21,14 +19,14 @@ const useGif = (keyword) => {
                 setGifs(fetchedGifs);
             }
             else {
-                const fetchedGifs = await fetchGifs(keywordToUse);
+                const fetchedGifs = await fetchGifs({ keyword: keywordToUse, rating });
                 setGifs(fetchedGifs);
                 localStorage.setItem('lastSearched', decodeURI(keywordToUse));
             }
             setLoading(false);
         }
         fetch();
-    }, [keyword, setGifs, keywordToUse]);
+    }, [keyword, rating, setGifs, keywordToUse]);
 
     useEffect(() => {
         if (page === INITIAL_PAGE) return;
@@ -40,7 +38,7 @@ const useGif = (keyword) => {
                 setLoadingNextGifs(false);
             }
             else {
-                const fetchedGifs = await fetchGifs(keywordToUse, page);
+                const fetchedGifs = await fetchGifs({ keyword: keywordToUse, page });
                 setGifs(prevGifs => prevGifs.concat(fetchedGifs));
                 setLoadingNextGifs(false);
             }
