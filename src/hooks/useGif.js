@@ -5,6 +5,7 @@ import useGlobalGifs from '../hooks/useGlobalGifs'
 const INITIAL_PAGE = 0;
 
 const useGif = (keyword) => {
+    //keyword = decodeURI(keyword);
     const keywordToUse = keyword || localStorage.getItem('lastSearched') || null;
 
     const { gifs, setGifs } = useGlobalGifs();
@@ -22,7 +23,7 @@ const useGif = (keyword) => {
             else {
                 const fetchedGifs = await fetchGifs(keywordToUse);
                 setGifs(fetchedGifs);
-                localStorage.setItem('lastSearched', keywordToUse);
+                localStorage.setItem('lastSearched', decodeURI(keywordToUse));
             }
             setLoading(false);
         }

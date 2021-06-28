@@ -6,7 +6,7 @@ import Home from './pages/Home/Home';
 import SearchResults from './pages/SearchResults';
 import './index.css'
 import { GifsContextProvider } from './context/GifsContext'
-import GifItemContext from './components/Gifs/GifItemContext';
+import SingleGif from './pages/SingleGif';
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
       <GifsContextProvider>
         <Route path="/" component={Home} />
         <Route path="/search/:keyword" component={SearchResults} />
-        <Route path="/gif/:id" component={GifItemContext} />
+        <Route path="/gif/:id" component={SingleGif} />
       </GifsContextProvider>
     </div>
   );

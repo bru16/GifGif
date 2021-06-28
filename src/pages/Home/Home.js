@@ -5,6 +5,7 @@ import Gifs from '../../components/Gifs/Gifs'
 import Spinner from '../../components/Spinner/Spinner'
 import './styles.css'
 import SearchForm from '../../components/SearchForm/SearchForm'
+import { Helmet } from "react-helmet";
 
 const Home = () => {
     const lastSearched = localStorage.getItem('lastSearched');
@@ -18,6 +19,7 @@ const Home = () => {
     if (loading) return <Spinner />
     return (
         <>
+            <Helmet><title>GifGif | Home</title></Helmet>
             <div className="home">
                 <h2>{lastSearched ? `Last search: ${lastSearched}` : 'Trending'}</h2>
                 <SearchForm search={handleSubmit} />

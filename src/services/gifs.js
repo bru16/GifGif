@@ -24,7 +24,7 @@ export const fetchGifs = async (keyword, page = 0) => {
     }
 }
 
-// get gif by ID
+// get gif by ID, returns default gif error if id does not exist (404)
 export const fetchGif = async (id) => {
     const API_URL = `${API}/${id}?api_key=8NRnNns9qM6YCtAf26w97UNi66Xef7jM`;
     try {
