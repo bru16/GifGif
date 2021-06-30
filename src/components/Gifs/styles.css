@@ -1,13 +1,16 @@
 .Gifs-layout {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 50px;
     align-items: center;
     grid-template-rows: masonry;
 }
 
 .Gif {
     max-height: 500px;
+}
+
+.Gif:hover {
+    color: #ff7a59;
 }
 
 .Gif img {

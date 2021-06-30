@@ -1,22 +1,36 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useLocation } from 'wouter'
+import './styles.css'
+import useForm from './useForm';
 
 const RATINGS = ['g', 'pg', 'pg-13', 'r'];
 
 const SearchForm = ({ initialKeyword = '', initialRating = 'g' }) => {
-    const [rating, setRating] = useState(initialRating);
-    const [keyword, setKeyword] = useState(initialKeyword);
+    /* const [rating, setRating] = useState(initialRating);
+    const [keyword, setKeyword] = useState(initialKeyword); */
+
     const [, pushLocation] = useLocation();
+    const { keyword, rating, updateKeyword, updateRating } = useForm({ initialKeyword, initialRating });
+
     const handleSubmit = e => {
         e.preventDefault();
         pushLocation(`/search/${keyword}/${rating}`);
     }
+
+    const handleKeyword = e => {
+        updateKeyword(e.target.value);
+    }
+
+    const handleRating = e => {
+        updateRating(e.target.value);
+    }
+
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <input type="text" value={keyword} placeholder="Search gifs..." onChange={e => setKeyword(e.target.value)} />
+                <input type="text" value={keyword} placeholder="Search gifs..." onChange={handleKeyword} />
                 <button>Go</button>
-                <select value={rating} onChange={e => setRating(e.target.value)}>
+                <select value={rating} onChange={handleRating}>
                     <option disabled>Ratings</option>
                     {RATINGS.map(rating => <option key={rating}>{rating}</option>)}
                 </select>
