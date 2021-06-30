@@ -22,7 +22,7 @@ const reducer = (state, action) => {
     }
 }
 
-const useForm = ({ initialKeyword, initialRating }) => {
+const useForm = ({ initialKeyword = '', initialRating = 'g' } = {}) => {
 
     const [state, dispatch] = useReducer(reducer, {
         keyword: decodeURI(initialKeyword),
@@ -35,7 +35,7 @@ const useForm = ({ initialKeyword, initialRating }) => {
         dispatch({ type: ACTIONS.UPDATE_KEYWORD, payload: keyword });
     }
     const updateRating = rating => {
-        dispatch({ type: ACTIONS.UPDATE_KEYWORD, payload: rating });
+        dispatch({ type: ACTIONS.UPDATE_RATING, payload: rating });
     }
 
     return { keyword, rating, updateKeyword, updateRating }
