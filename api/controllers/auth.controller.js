@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 import { users, favs, comparePassword, encryptPassword } from '../config/users.js'
 
 export const login = async (req, res) => {
-    console.log(users, favs)
     const { username, password } = req.body;
     const user = users.find(u => u.username === username);
 
