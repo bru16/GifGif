@@ -14,5 +14,4 @@ export async function login({ username, password }) {
 
     const { token } = data;
     return token;
-
 }

@@ -1,9 +1,10 @@
 import { useCallback, useContext } from 'react'
 import Context from '../context/userContext'
 import * as authService from '../services/auth'
+import * as userService from '../services/user'
 
 const useUser = () => {
-    const { jwt, setJWT } = useContext(Context);
+    const { jwt, setJWT, favs, setFavs } = useContext(Context);
 
     const login = useCallback(async ({ username, password }) => {
         try {
@@ -20,10 +21,31 @@ const useUser = () => {
         sessionStorage.clear();
     }, [setJWT]);
 
+    const addFavorite = async (id) => {
+        try {
+            const favorites = await userService.addFav({ id, jwt });
+            setFavs(favorites);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const deleteFavorite = async (id) => {
+        try {
+            const favorites = await userService.deleteFav({ id, jwt });
+            setFavs(favorites);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return {
         login,
         logout,
-        isLogged: Boolean(jwt)
+        addFavorite,
+        deleteFavorite,
+        favs,
+        isLogged: Boolean(jwt),
     }
 }
 

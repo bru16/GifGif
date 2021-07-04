@@ -1,0 +1,8 @@
+.fav-btn {
+    border-radius: 100px;
+    cursor: pointer;
+    background-color: grey;
+    border: 0;
+    width: 30px;
+    height: 30px;
+}
