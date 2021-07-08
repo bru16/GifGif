@@ -1,10 +1,13 @@
-import { useCallback, useContext } from 'react'
+import { useCallback, useContext, useState } from 'react'
 import Context from '../context/userContext'
 import * as authService from '../services/auth'
 import * as userService from '../services/user'
+import useLocation from 'wouter/use-location'
 
 const useUser = () => {
     const { jwt, setJWT, favs, setFavs } = useContext(Context);
+    const [, pushLocation] = useLocation();
+    const [error, setError] = useState(false);
 
     const login = useCallback(async ({ username, password }) => {
         try {
@@ -12,6 +15,10 @@ const useUser = () => {
             setJWT(token);
             sessionStorage.setItem('jwt', token);
         } catch (error) {
+            setError(true);
+            setTimeout(() => {
+                setError(false);
+            }, 3000);
             console.log(error.message)
         }
     }, [setJWT]);
@@ -20,6 +27,18 @@ const useUser = () => {
         setJWT(null);
         sessionStorage.clear();
     }, [setJWT]);
+
+    const registerUser = useCallback(async ({ username, password }) => {
+        try {
+            await authService.registerUser({ username, password });
+            pushLocation('/login');
+        } catch (error) {
+            setError(true);
+            setTimeout(() => {
+                setError(false);
+            }, 3000);
+        }
+    }, [pushLocation]);
 
     const addFavorite = async (id) => {
         try {
@@ -42,10 +61,13 @@ const useUser = () => {
     return {
         login,
         logout,
+        registerUser,
         addFavorite,
         deleteFavorite,
         favs,
         isLogged: Boolean(jwt),
+        error,
+        setError,
     }
 }
 

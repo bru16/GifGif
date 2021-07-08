@@ -1,21 +1,48 @@
 .Gifs-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    align-items: center;
-    grid-template-rows: masonry;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: masonry;
 }
 
 .Gif {
-    max-height: 500px;
+  --gifShadow-size: var(--gridList-gap, 6px);
+  margin-bottom: 0.5em;
+  position: relative;
+}
+
+.Gif h4 {
+  background: rgba(0, 0, 0, 0.3);
+  bottom: 0;
+  font-size: 12px;
+  color: #fff;
+  margin: 0;
+  position: absolute;
 }
 
 .Gif:hover {
-    color: #ff7a59;
+  line-height: 50px;
 }
 
 .Gif img {
-    height: 90%;
-    width: 90%;
-    object-fit: contain;
-    max-width: fit-content;
+  width: 100%;
+  object-fit: contain;
+  vertical-align: top;
+}
+
+.Gif-link {
+  color: #000;
+  display: block;
+  text-decoration: none;
+  position: relative;
+  width: 100%;
+}
+
+.Gif-link img {
+  height: inherit;
+  object-fit: cover;
+}
+
+.Gif .Gif-link {
+  height: 100%;
+  width: 98%;
 }

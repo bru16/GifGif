@@ -1,8 +1,9 @@
 import React from 'react'
-import Gif from '../components/Gifs/Gif'
-import useSingleGif from '../hooks/useSingleGif'
-import Spinner from '../components/Spinner/Spinner'
+import Gif from '../../components/Gifs/Gif'
+import useSingleGif from '../../hooks/useSingleGif'
+import Spinner from '../../components/Spinner/Spinner'
 import { Helmet } from "react-helmet";
+import './styles.css'
 
 const SingleGif = ({ params }) => {
     const { id } = params;
@@ -12,7 +13,9 @@ const SingleGif = ({ params }) => {
             <Helmet>
                 <title>{gif.title}</title>
             </Helmet>
-            <Gif {...gif} />
+            <div className="single-gif">
+                <Gif {...gif} />
+            </div>
         </>
     )
 

@@ -6,13 +6,11 @@ import Fav from '../Fav/Fav'
 const Gif = ({ title, url, id }) => {
     return (
         <div className="Gif">
-            <div>
+            <Fav id={id} />
+            <Link key={id} to={`/gif/${id}`} className="Gif-link">
                 <h4>{title}</h4>
-                <Fav id={id} />
-                <Link key={id} to={`/gif/${id}`}>
-                    <img alt={title} src={url} />
-                </Link>
-            </div>
+                <img alt={title} src={url} />
+            </Link>
         </div>
     )
 }

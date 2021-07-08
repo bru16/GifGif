@@ -6,11 +6,11 @@ import Home from './pages/Home/Home';
 import SearchResults from './pages/SearchResults';
 import './index.css'
 import { GifsContextProvider } from './context/GifsContext'
-import SingleGif from './pages/SingleGif';
+import SingleGif from './pages/SingleGif/SingleGif';
 import Header from './components/Header/Header'
 import LoginForm from './pages/LoginForm';
 import { UserContextProvider } from './context/userContext';
-import RegisterForm from './components/Register/RegisterForm';
+import RegisterForm from './pages/RegisterForm';
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
           <Route path="/search/:keyword/:rating?" component={SearchResults} />
           <Route path="/gif/:id" component={SingleGif} />
           <Route path="/login" component={LoginForm} />
-          <Route path="/register" component={RegisterForm}/>
+          <Route path="/register" component={RegisterForm} />
         </GifsContextProvider>
       </div>
     </UserContextProvider>

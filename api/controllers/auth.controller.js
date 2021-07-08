@@ -27,5 +27,5 @@ export const register = async (req, res) => {
     users.push(newUser);
     favs[username] = [];
 
-    res.status(200).json({message: 'registration confirmed'});
+    res.status(200).json({ message: 'registration confirmed' });
 }

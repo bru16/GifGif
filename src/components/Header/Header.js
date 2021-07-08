@@ -14,7 +14,8 @@ const Header = () => {
 
     return (
         <div className="header">
-            {isLogged ? <button className="header-btn" onClick={handleLogout}>Logout</button> : <Link to="/login">Login</Link>}
+            {isLogged ? <Link to="/login" className="header-btn" onClick={handleLogout}>Logout</Link> : <Link to="/login">Login</Link>}
+            {!isLogged && <Link to="/register">Register</Link>}
         </div>
     )
 }

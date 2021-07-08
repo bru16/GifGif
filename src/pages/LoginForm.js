@@ -1,30 +1,16 @@
-import React, { useState, useEffect } from 'react'
-import useUser from '../hooks/useUser';
-import { useLocation } from 'wouter'
+import React from 'react'
+import Form from '../components/Register/Form'
+import useUser from '../hooks/useUser'
 
-const LoginForm = () => {
-    const { login, isLogged } = useUser();
-    const [, pushLocation] = useLocation();
-    const [username, setUsername] = useState(null);
-    const [password, setPassword] = useState(null);
-
-    useEffect(() => {
-        if (isLogged) pushLocation('/')
-    }, [isLogged, pushLocation]);
-
-    const handleSubmit = e => {
-        e.preventDefault();
-        login({ username, password });
-    }
-
+const LoginForm = (props) => {
+    const { login, error } = useUser();
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
-                <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-                <button>Submit</button>
-            </form>
-        </div>
+        <>
+            <h2>Login</h2>
+            <Form onSubmit={login} />
+            {error && <h4 style={{ color: '#bf1650' }}>Credentials do not match.</h4>}
+
+        </>
     )
 }
 
