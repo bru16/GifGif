@@ -17,7 +17,6 @@ export function getFavorite(req, res) {
 }
 
 export function deleteFavorite(req, res) {
-    console.log('XD')
     const { id } = req.params;
     const username = res.locals.username;
     const newFavorites = favs[username].filter(favId => favId !== id);
