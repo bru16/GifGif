@@ -1,11 +1,10 @@
 import React from 'react'
-
 import useGif from '../../hooks/useGif';
 import Gifs from '../../components/Gifs/Gifs'
 import Spinner from '../../components/Spinner/Spinner'
 import './styles.css'
 import SearchForm from '../../components/SearchForm/SearchForm'
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     const lastSearched = localStorage.getItem('lastSearched');

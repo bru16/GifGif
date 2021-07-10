@@ -2,7 +2,7 @@ import React from 'react'
 import Gif from '../../components/Gifs/Gif'
 import useSingleGif from '../../hooks/useSingleGif'
 import Spinner from '../../components/Spinner/Spinner'
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import './styles.css'
 
 const SingleGif = ({ params }) => {

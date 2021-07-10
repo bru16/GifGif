@@ -25,13 +25,15 @@ const SearchForm = ({ initialKeyword = '', initialRating = 'g' }) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form className="search-form" onSubmit={handleSubmit}>
                 <input type="text" value={keyword} placeholder="Search gifs..." onChange={handleKeyword} />
-                <button>Go</button>
-                <select value={rating} onChange={handleRating}>
-                    <option disabled>Ratings</option>
-                    {RATINGS.map(rating => <option key={rating}>{rating}</option>)}
-                </select>
+                <div>
+                    <button><strong>Search <i className="fa fa-search"></i></strong></button>
+                    <select value={rating} onChange={handleRating}>
+                        <option disabled>Ratings</option>
+                        {RATINGS.map(rating => <option key={rating}>{rating}</option>)}
+                    </select>
+                </div>
             </form>
         </>
     )

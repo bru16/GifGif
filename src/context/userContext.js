@@ -11,7 +11,6 @@ export function UserContextProvider({ children }) {
         if (!jwt) return setFavs([]);
         const fetchFavorites = async () => {
             const favorites = await getFavs(jwt);
-            console.log(favorites + "XD")
             setFavs(favorites);
         }
         fetchFavorites();

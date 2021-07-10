@@ -5,13 +5,13 @@ import './styles.css'
 const Gifs = ({ gifs }) => {
     return (
         <div className="Gifs-layout">
-            {gifs.map(singleGif => {
+            {gifs.map((singleGif, index) => {
                 return (
                     <Gif
                         title={singleGif.title}
                         id={singleGif.id}
                         url={singleGif.url} // {...singleGif}
-                        key={singleGif.id}
+                        key={index}
                     />
                 )
             })}
