@@ -4,7 +4,6 @@ import Gifs from '../../components/Gifs/Gifs'
 import Spinner from '../../components/Spinner/Spinner'
 import { Helmet } from "react-helmet-async";
 import SearchForm from '../../components/SearchForm/SearchForm'
-import './styles.css'
 
 const SearchResults = ({ params }) => {
     const { keyword, rating } = params;
