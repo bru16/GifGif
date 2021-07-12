@@ -12,6 +12,10 @@ const SearchForm = ({ initialKeyword = '', initialRating = 'g' }) => {
 
     const handleSubmit = e => {
         e.preventDefault();
+        if (!keyword.replace(/\s/g, '').length) {   //if only whitespaces
+            updateKeyword('');
+            return;
+        }
         pushLocation(`/search/${keyword}/${rating}`);
     }
 

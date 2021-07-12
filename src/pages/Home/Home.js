@@ -15,13 +15,13 @@ const Home = () => {
         <>
             <Helmet><title>GifGif | Home</title></Helmet>
             <div className="home">
-                <h2>{lastSearched ? `Last search: ${lastSearched}` : 'Trending'}</h2>
+                <h2>{lastSearched ? `Last search: ${lastSearched}` : 'Trending 🔥'}</h2>
                 <SearchForm />
-                <Gifs gifs={gifs} />
+                {gifs.length > 0 ? <Gifs gifs={gifs} /> : <h4>No gifs were found about your last search, please try again.</h4>}
             </div>
             <br />
             {loadingNextGifs && <Spinner />}
-            <button onClick={() => setPage(prevPage => prevPage + 1)}>Load more gifs</button>
+            {gifs.length > 0 && <button onClick={() => setPage(prevPage => prevPage + 1)}>Load more gifs</button>}
         </>
     )
 }

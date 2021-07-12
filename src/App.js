@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 import { Route, Link } from "wouter";
 import Home from './pages/Home/Home';
-import SearchResults from './pages/SearchResults';
+import SearchResults from './pages/SearchResults/SearchResults';
 import './index.css'
 import { GifsContextProvider } from './context/GifsContext'
 import SingleGif from './pages/SingleGif/SingleGif';
@@ -11,6 +11,7 @@ import LoginForm from './pages/LoginForm';
 import { UserContextProvider } from './context/userContext';
 import RegisterForm from './pages/RegisterForm';
 import { HelmetProvider } from 'react-helmet-async';
+import Favorites from './pages/Favorites';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/gif/:id" component={SingleGif} />
             <Route path="/login" component={LoginForm} />
             <Route path="/register" component={RegisterForm} />
+            <Route path="/favorites" component={Favorites} />
           </GifsContextProvider>
         </div>
       </UserContextProvider>
