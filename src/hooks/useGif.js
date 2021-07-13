@@ -8,8 +8,8 @@ const useGif = (keyword, rating) => {
     const keywordToUse = keyword || localStorage.getItem('lastSearched') || null;
     const { gifs, setGifs } = useGlobalGifs();
     const [loading, setLoading] = useState(false);
-    const [loadingNextGifs, setLoadingNextGifs] = useState(false)
     const [page, setPage] = useState(INITIAL_PAGE);
+    const [noMoreGifs, setNoMoreGifs] = useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -30,24 +30,21 @@ const useGif = (keyword, rating) => {
 
     useEffect(() => {
         if (page === INITIAL_PAGE) return;
-        setLoadingNextGifs(true);
         async function fetch() {
             if (keywordToUse === null) {
                 const fetchedGifs = await fetchTrendingGifs(page);
                 setGifs(prevGifs => prevGifs.concat(fetchedGifs));
-                setLoadingNextGifs(false);
             }
             else {
                 const fetchedGifs = await fetchGifs({ keyword: keywordToUse, page });
                 setGifs(prevGifs => prevGifs.concat(fetchedGifs));
-                setLoadingNextGifs(false);
             }
         }
         fetch();
     }, [page, keywordToUse, setGifs])
 
 
-    return { loading, gifs, setPage, loadingNextGifs };
+    return { loading, gifs, setPage, noMoreGifs };
 }
 
 export default useGif
