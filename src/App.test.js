@@ -12,9 +12,20 @@ describe('Gifs', () => {
     render(<App />);
     const searchInput = await screen.findByPlaceholderText('Search gifs...');
     fireEvent.change(searchInput, { target: { value: 'batman' } });
-    const btn = await screen.findByText('Go');
+    const btn = await screen.findByText('Search');
     fireEvent.click(btn);
-    const title = await screen.findByText('batman');
+    const title = await screen.findByText('Results of batman');
+    expect(title).toBeDefined();
+    expect(title).toBeInTheDocument();
+  });
+
+  test('gifs not found', async () => {
+    render(<App />);
+    const searchInput = await screen.findByPlaceholderText('Search gifs...');
+    fireEvent.change(searchInput, { target: { value: 'aRandomInputWithNoGifs' } });
+    const btn = await screen.findByText('Search');
+    fireEvent.click(btn);
+    const title = await screen.findByText('Results of "aRandomInputWithNoGifs" not found');
     expect(title).toBeDefined();
     expect(title).toBeInTheDocument();
   });

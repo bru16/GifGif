@@ -3,7 +3,7 @@ import Form from '../components/Register/Form'
 import useUser from '../hooks/useUser'
 import { Helmet } from "react-helmet-async";
 
-const LoginForm = (props) => {
+const LoginForm = () => {
     const { login, error } = useUser();
 
     return (

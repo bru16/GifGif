@@ -2,7 +2,7 @@ import { useCallback, useContext, useState } from 'react'
 import Context from '../context/userContext'
 import * as authService from '../services/auth'
 import * as userService from '../services/user'
-import useLocation from 'wouter/use-location'
+import { useLocation } from "wouter";
 
 const useUser = () => {
     const { jwt, setJWT, favs, setFavs } = useContext(Context);

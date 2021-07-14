@@ -19,9 +19,7 @@ const SingleGif = ({ params }) => {
         </>
     )
 
-    return (
-        <Spinner />
-    )
+    return <Spinner />
 }
 
 

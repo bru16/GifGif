@@ -2,10 +2,8 @@ import { renderHook, act } from '@testing-library/react-hooks'
 import useForm from './useForm'
 
 describe('useForm hook', () => {
-
     test('should change keyword', () => {
         const { result } = renderHook(() => useForm());
-
         act(() => {
             result.current.updateKeyword('house');
         });
@@ -14,7 +12,6 @@ describe('useForm hook', () => {
 
     test('should change rating', () => {
         const { result } = renderHook(() => useForm());
-
         act(() => {
             result.current.updateRating('pg-13');
         });
@@ -24,7 +21,6 @@ describe('useForm hook', () => {
 
     test('should change keyword & rating', () => {
         const { result } = renderHook(() => useForm());
-
         act(() => {
             result.current.updateKeyword('matrix');
             result.current.updateRating('pg');

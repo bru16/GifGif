@@ -1,8 +1,9 @@
 import React from 'react'
+import { Helmet } from "react-helmet-async";
 import useGif from '../../hooks/useGif';
+//components
 import Gifs from '../../components/Gifs/Gifs'
 import Spinner from '../../components/Spinner/Spinner'
-import { Helmet } from "react-helmet-async";
 import SearchForm from '../../components/SearchForm/SearchForm'
 
 const SearchResults = ({ params }) => {

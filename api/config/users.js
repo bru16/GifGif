@@ -9,7 +9,7 @@ export const comparePassword = async (userPassword, receivedPassword) => {
     return await bcrypt.compare(receivedPassword, userPassword);
 }
 
-(async () => {
+(async () => {  // always create a admin user
     const password = await encryptPassword('admin123');
 
     const newUser = {
@@ -17,7 +17,7 @@ export const comparePassword = async (userPassword, receivedPassword) => {
         password: password
     }
     users.push(newUser);
-    favs[newUser.username] = [];
+    favs[newUser.username] = [];    // initialize
 })();
 
 export const users = []

@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import useGif from '../../hooks/useGif';
-import Gifs from '../../components/Gifs/Gifs'
-import Spinner from '../../components/Spinner/Spinner'
 import './styles.css'
-import SearchForm from '../../components/SearchForm/SearchForm'
 import { Helmet } from "react-helmet-async";
-import InfiniteScroll from "react-infinite-scroll-component";
 import debounce from "just-debounce-it";
+import useGif from '../../hooks/useGif';
+//components
+import InfiniteScroll from "react-infinite-scroll-component";
+import Gifs from '../../components/Gifs/Gifs'
+import SearchForm from '../../components/SearchForm/SearchForm'
+import Spinner from '../../components/Spinner/Spinner'
 
 
 const Home = () => {

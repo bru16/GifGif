@@ -32,7 +32,7 @@ const SearchForm = ({ initialKeyword = '', initialRating = 'g' }) => {
             <form className="search-form" onSubmit={handleSubmit}>
                 <input type="text" value={keyword} placeholder="Search gifs..." onChange={handleKeyword} />
                 <div>
-                    <button><strong>Search <i className="fa fa-search"></i></strong></button>
+                    <button>Search <i className="fa fa-search"></i></button>
                     <select value={rating} onChange={handleRating}>
                         <option disabled>Ratings</option>
                         {RATINGS.map(rating => <option key={rating}>{rating}</option>)}
