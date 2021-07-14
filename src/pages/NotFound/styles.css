@@ -1,0 +1,12 @@
+.not-found p {
+  margin-bottom: 100px;
+}
+
+.not-found a {
+  border-bottom: 1px solid white;
+  padding: 10px;
+}
+
+.not-found a:hover {
+  border-bottom: 1px solid tomato;
+}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import useGif from '../../hooks/useGif';
 import Gifs from '../../components/Gifs/Gifs'
 import Spinner from '../../components/Spinner/Spinner'
@@ -15,7 +15,7 @@ const Home = () => {
     const { loading, gifs, setPage } = useGif();
     const [hasMore, setHasMore] = useState(true);
 
-    // after 1.5s the function is executed, even though it was called multiple times.
+    // after 1.5s the function is executed only one time, even though it was called multiple times.
     const handleNextPage = debounce(() => {
         setPage(prevPage => prevPage + 1)
         if (gifs.length > 50) setHasMore(false);
@@ -25,13 +25,16 @@ const Home = () => {
 
     return (
         <>
-            <Helmet><title>GifGif | Home</title></Helmet>
+            <Helmet><title>Home | GifGif</title></Helmet>
             <div className="home">
                 <h2>{lastSearched ? `Last search: ${lastSearched}` : 'Trending 🔥'}</h2>
                 <SearchForm />
-                {gifs.length > 0 ? <InfiniteScroll hasMore={hasMore} next={handleNextPage} loader={<Spinner />} dataLength={gifs.length}>
-                    <Gifs gifs={gifs} />
-                </InfiniteScroll> : <h4>No gifs were found about your last search, please try again.</h4>}
+                {gifs.length > 0 ?
+                    <InfiniteScroll hasMore={hasMore} next={handleNextPage} loader={<Spinner />} dataLength={gifs.length}>
+                        <Gifs gifs={gifs} />
+                    </InfiniteScroll>
+                    :
+                    <h4>No gifs were found about your last search, please try again.</h4>}
             </div>
             <br />
         </>

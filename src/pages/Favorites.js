@@ -1,12 +1,16 @@
 import React from 'react'
 import FavoritesGifs from '../components/FavoritesGifs/FavoritesGifs'
+import { Helmet } from "react-helmet-async";
 
 const Favorites = () => {
     return (
-        <div>
+        <>
+            <Helmet><title>My Favorites | GifGif</title></Helmet>
             <h2>My favorites</h2>
-            <FavoritesGifs />
-        </div>
+            <div className="favorites-gifs">
+                <FavoritesGifs />
+            </div>
+        </>
     )
 }
 

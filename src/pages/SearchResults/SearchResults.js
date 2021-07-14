@@ -13,7 +13,7 @@ const SearchResults = ({ params }) => {
 
     return (
         <>
-            <Helmet><title>GifGif | Results of {decodeURI(keyword)}</title></Helmet>
+            <Helmet><title>Results of {decodeURI(keyword)} | GifGif</title></Helmet>
             <h2>Results of {decodeURI(keyword)}</h2>
             <SearchForm initialKeyword={keyword} initialRating={rating} />
             {gifs.length > 0 ? <Gifs gifs={gifs} /> : `Results of "${decodeURI(keyword)}" not found`}

@@ -85,8 +85,6 @@
   /* Position the tooltip text */
   position: absolute;
   z-index: 1;
-  right: 1px;
-  margin-left: 40px;
 
   /* Fade in tooltip */
   opacity: 0;

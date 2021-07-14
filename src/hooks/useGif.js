@@ -9,7 +9,6 @@ const useGif = (keyword, rating) => {
     const { gifs, setGifs } = useGlobalGifs();
     const [loading, setLoading] = useState(false);
     const [page, setPage] = useState(INITIAL_PAGE);
-    const [noMoreGifs, setNoMoreGifs] = useState(false);
 
     useEffect(() => {
         setLoading(true);
@@ -31,7 +30,7 @@ const useGif = (keyword, rating) => {
     useEffect(() => {
         if (page === INITIAL_PAGE) return;
         async function fetch() {
-            if (keywordToUse === null) {
+            if (keywordToUse === null || keywordToUse === undefined) {
                 const fetchedGifs = await fetchTrendingGifs(page);
                 setGifs(prevGifs => prevGifs.concat(fetchedGifs));
             }
@@ -44,7 +43,7 @@ const useGif = (keyword, rating) => {
     }, [page, keywordToUse, setGifs])
 
 
-    return { loading, gifs, setPage, noMoreGifs };
+    return { loading, gifs, setPage };
 }
 
 export default useGif

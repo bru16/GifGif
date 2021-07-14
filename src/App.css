@@ -4,15 +4,6 @@
   width: 100%;
 }
 
-.App h1 {
-  margin-bottom: 50px;
-  font-family: "Courier New", Courier, monospace;
-  border: 1px solid orange;
-  display: inline-block;
-  padding: 10px;
-  cursor: pointer;
-}
-
 .btn-submit {
   cursor: pointer;
   width: 100%;
