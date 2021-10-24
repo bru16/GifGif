@@ -6,7 +6,7 @@ import { Route, Link, Switch } from "wouter";
 import Header from './components/Header/Header'
 //context
 import { HelmetProvider } from 'react-helmet-async';
-import { GifsContextProvider } from './context/GifsContext'
+import { GifsContextProvider } from './context/gifsContext'
 import { UserContextProvider } from './context/userContext';
 //pages
 import Home from './pages/Home/Home';

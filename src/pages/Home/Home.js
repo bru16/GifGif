@@ -9,7 +9,6 @@ import Gifs from '../../components/Gifs/Gifs'
 import SearchForm from '../../components/SearchForm/SearchForm'
 import Spinner from '../../components/Spinner/Spinner'
 
-
 const Home = () => {
 
     const lastSearched = localStorage.getItem('lastSearched');
@@ -18,7 +17,6 @@ const Home = () => {
 
     // after 1.5s the function is executed only one time, even though it was called multiple times.
     const handleNextPage = debounce(() => {
-        console.log('lol')
         setPage(prevPage => prevPage + 1)
         if (gifs.length > 40) setHasMore(false);
     }, 1500);
