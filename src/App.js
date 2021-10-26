@@ -14,7 +14,7 @@ import SearchResults from './pages/SearchResults/SearchResults';
 import SingleGif from './pages/SingleGif/SingleGif';
 import LoginForm from './pages/LoginForm';
 import RegisterForm from './pages/RegisterForm';
-import Favorites from './pages/Favorites';
+import Favorites from './pages/Favorites/Favorites';
 import NotFound from './pages/NotFound/NotFound';
 
 function App() {

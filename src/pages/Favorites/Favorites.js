@@ -1,6 +1,7 @@
 import React from 'react'
-import FavoritesGifs from '../components/FavoritesGifs/FavoritesGifs'
+import FavoritesGifs from '../../components/FavoritesGifs/FavoritesGifs'
 import { Helmet } from "react-helmet-async";
+import './styles.css'
 
 const Favorites = () => {
     return (
