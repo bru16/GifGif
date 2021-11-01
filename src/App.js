@@ -12,8 +12,8 @@ import { UserContextProvider } from './context/userContext';
 import Home from './pages/Home/Home';
 import SearchResults from './pages/SearchResults/SearchResults';
 import SingleGif from './pages/SingleGif/SingleGif';
-import LoginForm from './pages/LoginForm';
-import RegisterForm from './pages/RegisterForm';
+import LoginForm from './pages/Forms/LoginForm';
+import RegisterForm from './pages/Forms/RegisterForm';
 import Favorites from './pages/Favorites/Favorites';
 import NotFound from './pages/NotFound/NotFound';
 

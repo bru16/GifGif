@@ -1,6 +1,6 @@
 import React from 'react'
-import Form from '../components/Register/Form'
-import useUser from '../hooks/useUser'
+import Form from '../../components/Register/Form'
+import useUser from '../../hooks/useUser'
 import { Helmet } from "react-helmet-async";
 
 const RegisterForm = () => {
