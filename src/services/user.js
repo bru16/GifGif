@@ -1,4 +1,4 @@
-const ENDPOINT = 'http://localhost:4000/api'
+import { ENDPOINT } from '../constants'
 
 export async function addFav({ id, jwt }) {
     const response = await fetch(`${ENDPOINT}/favorite/${id}`, {
