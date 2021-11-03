@@ -1,7 +1,6 @@
 import { ENDPOINT } from '../constants'
 
 export async function login({ username, password }) {
-    console.log("end:", ENDPOINT)
     const response = await fetch(`${ENDPOINT}/login`, {
         method: 'POST',
         headers: {

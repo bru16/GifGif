@@ -30,6 +30,5 @@ export async function deleteFav({ id, jwt }) {
         },
     });
     const data = await response.json();
-    console.log(data)
     return data;
 }

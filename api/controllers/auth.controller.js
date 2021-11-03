@@ -6,7 +6,7 @@ export const login = async (req, res) => {
     const user = users.find(u => u.username === username);
 
     if (!user) return res.status(403).json({ message: 'user not found' });
-    console.log(user)
+
     const validPassword = await comparePassword(user.password, password);
     if (!validPassword) return res.status(403).json({ message: 'invalid password' });
 
@@ -16,7 +16,7 @@ export const login = async (req, res) => {
 
 export const register = async (req, res) => {
     const { username, password } = req.body;
-    console.log(username, password)
+    
     const exists = users.find(u => u.username === username);
     if (exists) return res.status(403).json({ message: 'username already taken' });
 

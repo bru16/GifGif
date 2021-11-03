@@ -20,7 +20,6 @@ const SearchForm = ({ initialKeyword = '', initialRating = 'g' }) => {
     }
 
     const handleSubmit = e => {
-        console.log('es')
         e.preventDefault();
         if (!keyword.replace(/\s/g, '').length) {   //if only whitespaces
             updateKeyword('');
