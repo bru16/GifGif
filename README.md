@@ -23,4 +23,4 @@ https://developers.giphy.com/
 ### Preview
 ![image](https://user-images.githubusercontent.com/72894229/140199662-d2458397-f593-4689-86a1-7e1b62417b1b.png)
 
-###  [Go to website](gifgif1.netlify.app)
+###  [Go to website](https://gifgif1.netlify.app/)
