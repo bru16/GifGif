@@ -12,7 +12,7 @@ Tech used:
 
 Worth mentioning:
 
-* JWT (jswonwebtoken)
+* JWT (jsonwebtoken)
 * React Testing Library
 * React Hook Form
 
